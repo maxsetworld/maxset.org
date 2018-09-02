@@ -1,0 +1,14 @@
+{
+  "name": "maxsearch",
+  "version": "1.0.0",
+  "description": "Website to showcase features, demos, and download MaxSearch Application.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Benjamin King",
+  "license": "ISC",
+  "dependencies": {
+    "mdbootstrap": "^4.5.8"
+  }
+}

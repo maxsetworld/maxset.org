@@ -138,7 +138,7 @@
                     <div class="">
                       <h3>We want to hear from you.</h3>
                       <hr>
-                      <form id="contactForm">
+                      <form id="contactForm" action="http://localhost:8686/form" method="post">
 
                       <div class="row">
                         <div class="col-md-6">
@@ -314,7 +314,7 @@
 var messagesRef = firebase.database().ref('messages');
 
 // Listen for form Submit
-document.getElementById('contactForm').addEventListener('submit', submitForm);
+//document.getElementById('contactForm').addEventListener('submit', submitForm);
 
 
 // submit form

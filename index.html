@@ -133,35 +133,42 @@
                             </div>
                           </div>
 
+
+  <style>
+    .hide { position:absolute; top:-1px; left:-1px; width:1px; height:1px; }
+  </style>
+
+  <iframe name="hiddenFrame" class="hide"></iframe>
+
                 <div class="col-md-8">
                   <div class="p-4">
                     <div class="">
                       <h3>We want to hear from you.</h3>
                       <hr>
-                      <form id="contactForm" action="http://localhost:8686/form" method="post">
+                      <form id="contactForm" action="https://shopify.maxset.org/form" method="post" target="hiddenFrame">
 
                       <div class="row">
                         <div class="col-md-6">
                           <div class="form-group">
-                            <input type="text" class="form-control" placeholder="First Name" id="firstName" required>
+                            <input type="text" class="form-control" placeholder="First Name" id="firstName" name="firstName" required>
                           </div>
                         </div>
 
                         <div class="col-md-6">
                           <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Last Name" id="lastName">
+                            <input type="text" class="form-control" placeholder="Last Name" id="lastName" name="lastName">
                           </div>
                         </div>
 
                         <div class="col-md-6">
                           <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Email" id="eMail" required>
+                            <input type="text" class="form-control" placeholder="Email" id="eMail" name="eMail" required>
                           </div>
                         </div>
 
                         <div class="col-md-6">
                           <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Phone Number" id="phoneNumber">
+                            <input type="text" class="form-control" placeholder="Phone Number" id="phoneNumber" name="phoneNumber">
                           </div>
                         </div>
 
@@ -169,11 +176,11 @@
                       <div class="row">
                         <div class="col-md-12">
                           <div class="form-group">
-                            <textarea class="form-control" placeholder="Message" id="message" required></textarea>
+                            <textarea class="form-control" placeholder="Message" id="message" name="message" required></textarea>
                           </div>
                         </div>
                         <div class="col-md-12">
-                          <button type="submit" class="btn btn-lg btn-default">Submit</button>
+                          <button type="button" class="btn btn-lg btn-default" onclick="submitForm();">Submit</button>
                         </div>
                       </div>
                       </form>
@@ -314,26 +321,27 @@
 var messagesRef = firebase.database().ref('messages');
 
 // Listen for form Submit
-//document.getElementById('contactForm').addEventListener('submit', submitForm);
+document.getElementById('contactForm').addEventListener('submit', submitForm);
 
 
 // submit form
 function submitForm(e){
-e.preventDefault();
+  // e.preventDefault();
+  //
+  // //get values
+  // var firstname = getInputVal('firstName');
+  // var lastname = getInputVal('lastName');
+  // var email = getInputVal('eMail');
+  // var phonenumber = getInputVal('phoneNumber');
+  // var message = getInputVal('message');
+  //
+  // // save message
+  // saveMessage(firstname, lastname, email, phonenumber, message);
 
-//get values
-var firstname = getInputVal('firstName');
-var lastname = getInputVal('lastName');
-var email = getInputVal('eMail');
-var phonenumber = getInputVal('phoneNumber');
-var message = getInputVal('message');
-
-// save message
-saveMessage(firstname, lastname, email, phonenumber, message);
-
-
-// clear form
-document.getElementById('contactForm').reset();
+  document.getElementById('contactForm').submit();
+  // clear form
+  document.getElementById('contactForm').reset();
+  return false
 }
 
 // function to get form values

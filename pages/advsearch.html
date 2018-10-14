@@ -86,33 +86,88 @@
             </div>
              <!-- Feature #2 -->
              <div class="row pt-5">
-                <div class="col-sm-6">
+               <div class="col-sm-6 pt-3">
+                   <h2>Variable Character Expressions</h2>
+                   <p>Within a search expression, it is possible to indicate that a paricular letter in the search phrase can match more then one possible letter. For example, it is possible to simulataniously search for "read" and "road" using "r[eo]ad."</p>
+               </div>
+               <div class="col-sm-6">
+                 <table>
+                   <tr>
+                     <th>Example</th>
+                     <th>Explanation</th>
+                   </tr>
+                   <tr>
+                     <td><em>.</em></td>
+                     <td>a period will match any character, "c.t" will match "cat" and "cut"</td>
+                   </tr>
+                   <tr>
+                     <td><em>[xyz]</em></td>
+                     <td>Character Class: matches any character listed between the brackets. [xyz] will match "x", "y", or "z"</td>
+                   </tr>
+                   <tr>
+                     <td><em>[^xyz]</em></td>
+                     <td>Negated Character Class: matches any character <strong>not</strong> listed between the brackets. [^xyz] will match anything but "x", "y", or "z"</td>
+                   </tr>
+                   <tr>
+                     <td><em>[[:name:]]</em></td>
+                     <td>Predefined Character Class: there are several different built in character classes identified by their name (see <a href="#namechart">chart</a>).</td>
+                   </tr>
+                   <tr>
+                     <td><em>[^[:name:]]</em></td>
+                     <td>Negated Predefined Character Class: matches any character not within the predefined character class</td>
+                   </tr>
+                 </table>
+               </div>
+                <!-- <div class="col-sm-6">
                     <img src="/img/data.jpeg" class="img-fluid feature-img" alt="Responsive image">
-                </div>
-                <div class="col-sm-6 pt-3">
-                    <h2>Integration and Compatibility</h2>
-                    <p>MaxSearch can index and interpret various types of metadata. MaxSearch integrates with a variety of platforms; CRM, ERM, SQL and No SQL databases, Tableau, R, Spark, Machine Learning and Artificial intelligence APIs.</p>
-                </div>
+                </div> -->
             </div>
             <!-- Feature #3 -->
             <div class="row pt-5">
                 <div class="col-sm-6">
-                    <h2>Secure</h2>
-                    <p>We understand the importance of cyber security. MaxSearch is equipped with military-grade cyber security, adhering to DOD standards.</p>
+                    <h2>Predefined Character Classes</h2>
+                    <p>Some Useful Character Classes that are already defined and can used by their name. On their own they only match a single character. See <a href="#repitition">Repitition</a> for how to extend this to multiple characters.</p>
                 </div>
                 <div class="col-sm-6">
-                    <img src="/img/pilot-green.png" class="img-fluid feature-img" alt="Responsive image">
+                    <table id="namechart">
+                      <tr>
+                        <th>Name</th>
+                        <th>Associated Characters</th>
+                      </tr>
+                      <tr>
+                        <td>alnum</td>
+                        <td>any number or english letter</td>
+                      </tr>
+                      <tr>
+                        <td>alpha</td>
+                        <td>any english letter</td>
+                      </tr>
+                      <tr>
+                        <td>digit</td>
+                        <td>any number</td>
+                      </tr>
+                      <tr>
+                        <td>lower</td>
+                        <td>any lower case english letter</td>
+                      </tr>
+                      <tr>
+                        <td>upper</td>
+                        <td>any upper case english letter</td>
+                      </tr>
+                    </table>
                 </div>
+            </div>
+            <div class="row pt-5">
+              <div class="col-sm-6 pt-3">
+                <h2>Grouping</h2>
+              </div>
             </div>
             <!-- Feature #4 -->
             <div class="row pt-5 pb-5">
-                <div class="col-sm-6">
-                    <img src="/img/working-green.jpg" class="img-fluid feature-img" alt="Responsive image">
-                </div>
-            <div class="col-sm-6 pt-3">
-                    <h2>Simplicity</h2>
-                    <p>MaxSearch has a user interface that is easy to use. Unlike other platforms that take certificates and extensive training, MaxSearch can be implemented within a large organization with minimal training.</p>
-                </div>
+              <div class="col-sm-6 pt-3">
+                      <h2 id="repitition">Repitition</h2>
+                      <p>MaxSearch has a user interface that is easy to use. Unlike other platforms that take certificates and extensive training, MaxSearch can be implemented within a large organization with minimal training.</p>
+              </div>
             </div>
         </div>
 

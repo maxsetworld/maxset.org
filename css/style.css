@@ -19,3 +19,31 @@ body {
 p.lead {
     font-size: 28px;
 }
+
+.outline {
+  border: 1px solid black;
+}
+
+td.checkerboardgrey {
+  background-color: #DDD;
+}
+
+td.checkerboardblue {
+  background-color: #DDF;
+}
+
+th.columnheader {
+  font-weight: bold;
+}
+
+th.push {
+  min-width: 120px;
+}
+
+table {
+  width: 100%;
+}
+
+.indent {
+  margin-left: 10%;
+}

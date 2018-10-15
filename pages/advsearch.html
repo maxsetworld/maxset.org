@@ -34,7 +34,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="./features.html">Features</a>
                     </li>
                     <li class="nav-item">
@@ -46,8 +46,8 @@
                     <li class="nav-item">
                         <a class="nav-link" href="./blog.html">Blog</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Advanced Search</a>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">How to Search</a>
                     </li>
                 </ul>
             </div>
@@ -93,28 +93,28 @@
                <div class="col-sm-6">
                  <table>
                    <tr>
-                     <th>Example</th>
-                     <th>Explanation</th>
+                     <th class="columnheader push">Expression</th>
+                     <th class="columnheader push">Explanation</th>
                    </tr>
                    <tr>
-                     <td><em>.</em></td>
-                     <td>a period will match any character, "c.t" will match "cat" and "cut"</td>
+                     <td class="outline checkerboardgrey"><p><strong class="indent">.</strong></p></td>
+                     <td class="outline checkerboardblue">a period will match any character, "c.t" will match "cat" and "cut"</td>
                    </tr>
                    <tr>
-                     <td><em>[xyz]</em></td>
-                     <td>Character Class: matches any character listed between the brackets. [xyz] will match "x", "y", or "z"</td>
+                     <td class="outline checkerboardblue"><em>[xyz]</em></td>
+                     <td class="outline checkerboardgrey">Character Class: matches any character listed between the brackets. [xyz] will match "x", "y", or "z"</td>
                    </tr>
                    <tr>
-                     <td><em>[^xyz]</em></td>
-                     <td>Negated Character Class: matches any character <strong>not</strong> listed between the brackets. [^xyz] will match anything but "x", "y", or "z"</td>
+                     <td class="outline checkerboardgrey"><em>[^xyz]</em></td>
+                     <td class="outline checkerboardblue">Negated Character Class: matches any character <strong>not</strong> listed between the brackets. [^xyz] will match anything but "x", "y", or "z"</td>
                    </tr>
                    <tr>
-                     <td><em>[[:name:]]</em></td>
-                     <td>Predefined Character Class: there are several different built in character classes identified by their name (see <a href="#namechart">chart</a>).</td>
+                     <td class="outline checkerboardblue"><em>[[:name:]]</em></td>
+                     <td class="outline checkerboardgrey">Predefined Character Class: there are several different built in character classes identified by their name (see <a href="#namechart">chart</a>).</td>
                    </tr>
                    <tr>
-                     <td><em>[^[:name:]]</em></td>
-                     <td>Negated Predefined Character Class: matches any character not within the predefined character class</td>
+                     <td class="outline checkerboardgrey"><em>[^[:name:]]</em></td>
+                     <td class="outline checkerboardblue">Negated Predefined Character Class: matches any character not within the predefined character class</td>
                    </tr>
                  </table>
                </div>
@@ -126,33 +126,33 @@
             <div class="row pt-5">
                 <div class="col-sm-6">
                     <h2>Predefined Character Classes</h2>
-                    <p>Some Useful Character Classes that are already defined and can used by their name. On their own they only match a single character. See <a href="#repitition">Repitition</a> for how to extend this to multiple characters.</p>
+                    <p>Some Useful Character Classes that are already defined and can used by their name. [[:alpha:]] matches letters for example. On their own they only match a single character. See <a href="#repetition">Repitition</a> for how to extend this to multiple characters.</p>
                 </div>
                 <div class="col-sm-6">
                     <table id="namechart">
                       <tr>
-                        <th>Name</th>
-                        <th>Associated Characters</th>
+                        <th class="columnheader push">Name</th>
+                        <th class="columnheader push">Associated Characters</th>
                       </tr>
                       <tr>
-                        <td>alnum</td>
-                        <td>any number or english letter</td>
+                        <td class="outline checkerboardgrey">alnum</td>
+                        <td class="outline checkerboardblue">any number or english letter</td>
                       </tr>
                       <tr>
-                        <td>alpha</td>
-                        <td>any english letter</td>
+                        <td class="outline checkerboardblue">alpha</td>
+                        <td class="outline checkerboardgrey">any english letter</td>
                       </tr>
                       <tr>
-                        <td>digit</td>
-                        <td>any number</td>
+                        <td class="outline checkerboardgrey">digit</td>
+                        <td class="outline checkerboardblue">any number</td>
                       </tr>
                       <tr>
-                        <td>lower</td>
-                        <td>any lower case english letter</td>
+                        <td class="outline checkerboardblue">lower</td>
+                        <td class="outline checkerboardgrey">any lower case english letter</td>
                       </tr>
                       <tr>
-                        <td>upper</td>
-                        <td>any upper case english letter</td>
+                        <td class="outline checkerboardgrey">upper</td>
+                        <td class="outline checkerboardblue">any upper case english letter</td>
                       </tr>
                     </table>
                 </div>
@@ -160,13 +160,100 @@
             <div class="row pt-5">
               <div class="col-sm-6 pt-3">
                 <h2>Grouping</h2>
+                <p>It is possible to construct more complex search queries from simpler search queries. To do so, the simpler queries that are longer then a single character are surrounded by parentheses to specify where the query begins and ends. There are two basic ways to combine queries. First two queries written next to each other are interpreted to mean that a match to the whole query will contain a match to each sub-query in the other order they apear. Used alone this method does make the use of parentheses redundant, but it becomes important when used in conjunction with other elements. The second way to combine queries is by using the | symbol, found as shift+\ on most keyboards. This is interpreted as OR. The full query will be considered matched if either side of the | is matched.</p>
+              </div>
+              <div class="col-sm-6">
+                <table>
+                  <tr>
+                    <th class="columnheader push">Example</th>
+                    <th class="columnheader push">Interpretation</th>
+                  </tr>
+                  <tr>
+                    <td class="outline checkerboardgrey">(cat)</td>
+                    <td class="outline checkerboardblue">the same as cat. the parentheses are redundant in this example.</td>
+                  </tr>
+                  <tr>
+                    <td class="outline checkerboardblue">(cat)(dog)</td>
+                    <td class="outline checkerboardgrey">the same as catdog. the parentheses are redundant in this example.</td>
+                  </tr>
+                  <tr>
+                    <td class="outline checkerboardgrey">(cat)|(dog)</td>
+                    <td class="outline checkerboardblue">this will match cat or dog.</td>
+                  </tr>
+                  <tr>
+                    <td class="outline checkerboardblue">cat|dog</td>
+                    <td class="outline checkerboardgrey">this will match catog or cadog. Without the parentheses the | only applies to the single characters on either side.</td>
+                  </tr>
+                  <tr>
+                    <td class="outline checkerboardgrey">re(do)|(apply)</td>
+                    <td class="outline checkerboardblue">this matches redo or reapply</td>
+                  </tr>
+                </table>
               </div>
             </div>
             <!-- Feature #4 -->
+            <div class="row pt-5">
+              <div class="col-sm-6 pt-3">
+                <h2 id="repetition">Repetition</h2>
+                <p>There are several different ways to indicate that the search should look for a variable number of copies of a character or query. They are all added at the right side of the element that will have the variable number of occurances. The particular symbol indicates the number of copies to search for.</p>
+              </div>
+              <div class="col-sm-6">
+                <table>
+                  <tr>
+                    <th class="columnheader push">Symbol</th>
+                    <th class="columnheader push">Meaning</th>
+                  </tr>
+                  <tr>
+                    <td class="outline checkerboardgrey">*</td>
+                    <td class="outline checkerboardblue">an asterix (shift+8) will look for zero or more copies. ca*t will match ct, cat, caat, caaat, and so on.</td>
+                  </tr>
+                  <tr>
+                    <td class="outline checkerboardblue">+</td>
+                    <td class="outline checkerboardgrey">look for one or more copies. ca+t will match cat, caat, caaat, and so on. but not ct</td>
+                  </tr>
+                  <tr>
+                    <td class="outline checkerboardgrey">?</td>
+                    <td class="outline checkerboardblue">look for zero or one copies. dogs? will match dog or dogs</td>
+                  </tr>
+                  <tr>
+                    <td class="outline checkerboardblue">{n}</td>
+                    <td class="outline checkerboardgrey">look for exactly n copies. (jo){3} is effectively the same as jojojo</td>
+                  </tr>
+                  <tr>
+                    <td class="outline checkerboardgrey">{n,m}</td>
+                    <td class="outline checkerboardblue">look for at least n but not more then m copies. w(ow){2,4}ee will match wowowee, wowowowee, and wowowowowee.</td>
+                  </tr>
+                  <tr>
+                    <td class="outline checkerboardblue">{n,}</td>
+                    <td class="outline checkerboardgrey">look for at least n copies. ru(jo){3,}le will match rujojojole and rujojojojole, as long as there are at least 3 jo</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
             <div class="row pt-5 pb-5">
               <div class="col-sm-6 pt-3">
-                      <h2 id="repitition">Repitition</h2>
-                      <p>MaxSearch has a user interface that is easy to use. Unlike other platforms that take certificates and extensive training, MaxSearch can be implemented within a large organization with minimal training.</p>
+                <h2>Examples</h2>
+                <p>here are some useful examples to help guide your searches</p>
+              </div>
+              <div class="col-sm-6">
+                <table>
+                  <tr>
+                    <th class="columnheader push">Example</th>
+                    <th class="columnheader push">Interpretation</th>
+                  </tr>
+                  <tr>
+                    <td class="outline checkerboardgrey">[.*+?[()]</td>
+                    <td class="outline checkerboardblue">In order to match the characters that normally have a special meaning, you can put them in a character class and they'll be interpreted as character to match rather then their normal meaning.</td>
+                  </tr>
+                  <tr>
+                    <td class="outline checkerboardblue">[]]</td>
+                    <td class="outline checkerboardgrey">As a special case, if ] imediately follows [ when defining a character class, then it is iterpreted as a member of that class rather then being the closing marker. This is how you can search for the ] character.</td>
+                  </tr>
+                  <tr>
+                    <td class="outline checkerboardgrey"><strong class="indent">.*</strong></td>
+                    <td class="outline checkerboardblue">This will match any sequence of any length. This can be useful as a separator of other search terms while preserving the order of those terms. (the.*cat) will match "the cat" and "the angry cat" but not "cat ran to the"</td>
+                  </tr>
+                </table>
               </div>
             </div>
         </div>
@@ -205,7 +292,7 @@
                     <a href="./blog.html">Blog</a>
                   </li>
                   <li>
-                    <a href="#">Advanced Search</a>
+                    <a href="#">How to Search</a>
                   </li>
                 </ul>
 

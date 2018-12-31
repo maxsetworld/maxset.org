@@ -20,6 +20,10 @@ p.lead {
     font-size: 28px;
 }
 
+p.major {
+  font-size: 18px;
+}
+
 .outline {
   border: 1px solid black;
 }
